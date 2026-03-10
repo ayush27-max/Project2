@@ -2,24 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone') {
-            steps {
-                checkout scm
-            }
-        }
-        stage('Install') {
-            steps {
-                sh 'npm install'
-            }
-        }
         stage('Build') {
             steps {
-                sh 'npm run build'
+                echo 'Building...'
             }
         }
         stage('Test') {
             steps {
-                echo 'Running tests...'
+                echo 'Testing...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
             }
         }
     }
@@ -28,13 +23,7 @@ pipeline {
 
 ---
 
-**4.** Scroll down → Click **"Commit changes"**
-
----
-
-### Your repo structure should look like this after:
+### Error 2: No GitHub credentials
 ```
-Project2/
-├── weatherio-main/
-├── README.md
-└── Jenkinsfile   ✅  ← add here
+Connecting to https://api.github.com with no credentials, anonymous access
+Could not update commit status. Requires authentication - 401
