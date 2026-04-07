@@ -1,10 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('build') {
       steps {
-        bat 'echo "Compiling"'
-        bat 'echo "Compiling"'
+        bat 'stage(\'Build\') {     steps {         bat \'echo "Compiling"\'     } }'
       }
     }
 
